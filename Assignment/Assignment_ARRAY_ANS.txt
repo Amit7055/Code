@@ -1,0 +1,207 @@
+/*
+1. Write a program scan 7 values and print index wise.
+*/
+
+#include <stdio.h>
+main() 
+{
+    int values[7],i; 
+
+    printf("Enter 7 values:\n");
+    for (i=0;i<7;i++) 
+	{
+        scanf("%d", &values[i]);
+    }
+
+    printf("\nIndex-wise values:\n");
+    for (int i = 0; i < 7; i++) 
+	{
+        printf("Index %d: %d\n", i, values[i]);
+    }
+
+}
+
+
+
+
+/*
+2. Write a program scan 10 numbers for array
+ print array with index
+and
+calculated sum of even numbers and total even numbers.
+*/
+
+#include <stdio.h>
+main() 
+{
+    int a[10],i,sum=0,count=0; 
+
+    printf("Enter 10 values:\n");
+    for(i=0;i<10;i++) 
+	{
+        scanf("%d", &a[i]);
+    }
+
+    printf("\nIndex-wise values:\n");
+    for(i=0;i<10;i++) 
+	{
+        printf("Index a[%d]: %d\n", i, a[i]);
+    }
+    
+
+    for(i=0;i<10;i++)
+	{
+		if(a[i]%2==0)
+		{
+			sum=sum+a[i];
+			count++;
+		}
+	}
+    
+    printf("Sum of even number : \t%d",sum);
+    printf("\nTotal of even number : \t%d",count);
+}
+
+
+
+
+
+/*
+3. Write a program scan array for 10 numbers which is combination
+of positive and negative numbers
+count total positive and negative
+*/
+
+#include <stdio.h>
+main() 
+{
+    int a[10],i,p=0,n=0,count=0,total=0; 
+
+    printf("Enter 10 values:\n");
+    for(i=0;i<10;i++) 
+	{
+        scanf("%d", &a[i]);
+    }
+
+    printf("\nIndex-wise values:\n");
+    for(i=0;i<10;i++) 
+	{
+        printf("Index a[%d]: %d\n", i, a[i]);
+    }
+    
+
+    for(i=0;i<10;i++)
+	{
+		if(a[i]>0)
+		{
+			p=p+a[i];
+			count++;
+		}
+		else
+		{
+			n=n+a[i];
+			total++;
+		}
+	}
+    
+    printf("\n-------------------------------------\n");
+    
+    printf("\nTotal positive        : \t%d",p);
+    printf("\nTotal positive number : \t%d",count);
+    
+    printf("\n-------------------------------------\n");
+    
+    printf("\nTotal negative        : \t%d",n);
+    printf("\nTotal negative number : \t%d",total);
+}
+
+
+
+
+/*
+4. Write a program scan array for 10 numbers which is combination
+of positive and negative numbers replace all negative numbers by 0
+*/
+
+#include <stdio.h>
+main() 
+{
+    int a[10],i,p=0,n=0,count=0,total=0,r; 
+
+    printf("Enter 10 values:\n");
+    for(i=0;i<10;i++) 
+	{
+        scanf("%d", &a[i]);
+    }
+    
+    printf("\n-------------------------------------\n");
+    
+    printf("\nOrignal:\n");
+    for(i=0;i<10;i++) 
+	{
+        printf("Index a[%d]: %d\n", i, a[i]);
+    }
+
+    for(i=0;i<10;i++)
+	{
+		if(a[i]<0)
+		{
+			n=n+a[i];
+			total++;
+			a[i]=0;
+		}
+		else
+		{
+			p=p+a[i];
+			count++;
+		}
+	}
+    
+    printf("\n-------------------------------------\n");
+    
+    printf("\nReplace:\n");
+    for(i=0;i<10;i++) 
+	{
+        printf("Index a[%d]: %d\n", i, a[i]);
+    }
+    
+    
+    printf("\n-------------------------------------\n");
+    
+    printf("\nTotal negative        : \t%d",n);
+    printf("\nTotal negative number : \t%d",total);
+    
+    printf("\n-------------------------------------\n");
+    
+    printf("\nTotal positive        : \t%d",p);
+    printf("\nTotal positive number : \t%d",count);
+}
+
+
+
+
+/*
+5.Write a program which store 1 to 5 squar inside the array.
+*/
+
+#include <stdio.h>
+main() 
+{
+    int a[50],i,sq,n; 
+    
+    printf("\nEnter the size of array:");
+    scanf("%d",&n);
+    
+    for (i=0;i<n;i++) 
+	{
+        sq=i+1;
+        a[i]=sq*sq;
+    }
+    
+    printf("\n1 to 5 square inside the array.:\n");
+    for (i=0;i<n;i++) 
+	{
+        printf("\nSquare[%d] =\t%d",i,a[i]);
+    }
+
+}

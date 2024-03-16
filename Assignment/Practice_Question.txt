@@ -1,0 +1,52 @@
+﻿1. Basics:
+• Print "Hello, World!".
+• Swap two numbers.
+• Find the maximum of two numbers.
+• Check if a number is even or odd.
+• Calculate the factorial of a number.
+2. String Manipulation:
+• Reverse a string.
+• Check if a string is a palindrome.
+• Count the vowels in a string.
+• Remove duplicates from a string.
+• Check if two strings are anagrams.
+3. Loops and Control Structures:
+• Print the Fibonacci series.
+• Check if a number is prime.
+• Find all factors of a number.
+• Print a pattern of stars (like a pyramid).
+• Print numbers from 1 to n without using loops.
+4. Arrays and Matrices:
+• Find the maximum element in an array.
+• Rotate an array by 'k' positions.
+• Find the "Kth" smallest or largest element in an array.
+• Search an element in a 2D matrix.
+• Reverse an array.
+
+
+4. Object-Oriented Programming:
+• Design a class to represent a "Car" with properties like brand, color, and
+speed.
+• Implement inheritance with base class "Vehicle" and derived class "Car".
+• Demonstrate polymorphism with a shape hierarchy (like "Shape",
+"Circle", "Rectangle").
+• Overload a function or operator in a class.
+
+
+C Programs on Functions
+1.Perform Arithmetic Operations on integers
+2. Calculate simple interest
+3. Find cube of a number
+4. Area & perimeter of rectangle
+5. Calculate exponentiation
+6. Calculate x to the power of y
+7. Calculate sum of series
+8. Check if number is perfect number
+9. Perfect numbers between 1 to 50
+10. Prime numbers from 1 to 100
+11. Print Fibonacci series
+21. Print Sum of digits using recursion
+22. Find odd and even numbers
+23. Convert decimal to binary number
+24. Exchange two numbers
+25. Find factorial using recursion

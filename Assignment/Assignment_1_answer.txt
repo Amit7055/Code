@@ -1,0 +1,388 @@
+/*1.Write a program scan one number and update that number with orignal value plus half value of orignal value
+(use single variable)*/
+
+#include<stdio.h>
+int main()
+{
+	int a;
+	printf("Enter the Number:");
+	scanf("%d",&a);
+	printf("%d + %d/2 = %d",a,a,a+a/2);
+}
+
+
+
+/* 2.Write a program scan hours and convert in min and sec. */
+
+#include<stdio.h>
+int main()
+{
+	int hours,min,sec;
+	
+	printf("Enter the Hours:");
+	scanf("%d",&hours);
+	
+	min=hours*60;
+	sec=min*60;
+	
+	printf("\n%d hours in min = %d min",hours,min);
+	printf("\n%d hours in sec = %d sec",hours,sec);
+}
+
+
+
+/* 3.write a progam scan year and convert in days and month */
+
+#include<stdio.h>
+int main()
+{
+	int year,month,days;
+	printf("Enter the number years:");
+	scanf("%d",&year);
+	
+	month=year*12;
+	days=year*365;
+
+	printf("\n%d years into month is %d month",year,month);
+	
+	printf("\n%d years into days is %d days",year,days);
+}
+
+
+
+/* 4.write a program which calculate simple interest
+si=p*r*n/100
+amount=p+si */
+
+#include<stdio.h>
+int main()
+{
+	//input
+	int principal,number_of_year;
+	float rate_of_interest,simple_interest,amount;
+	printf("Enter Principal Amount:");
+	scanf("%d",&principal);
+	
+	printf("Enter the Rate of Interest:");
+	scanf("%f",&rate_of_interest);
+	
+	printf("Enter Number of Year:");
+	scanf("%d",&number_of_year);
+	//input
+	
+	simple_interest=principal*rate_of_interest*number_of_year/100;//simple interest
+	printf("\nSimple Interest = %.3f",simple_interest);
+	
+	amount=principal+simple_interest;//total amount
+	printf("\nTotal Amount = %.3f",amount);
+}
+
+
+
+/* 5.Write a program scan 
+loan amount
+rate of interest
+number of years
+and calculate total EMI
+and EMI amount
+and total payable loan amount */
+
+#include<stdio.h>
+int main()
+{
+ float p, R, r, emi,amt;
+ int n;
+
+ /* Reading inputs */
+ printf("Enter principal amount: ");
+ scanf("%f", &p);
+ printf("Enter annual interest rate: ");
+ scanf("%f", &R);
+ printf("Enter number of year: ");
+ scanf("%d", &n);
+
+
+ /* Calculating equated monthly intsallment (EMI) */
+ emi = p*R*n/100;
+ printf("Monthly EMI: %.2f",emi);
+ 
+ // Calculating total payable loan amount
+ amt=emi+p;
+ printf("\nTotal Payable Loan Amount: %.2f",amt);
+
+ return 0;
+}
+
+
+
+/* 1. Write a program scan age and print person is minor. */
+
+#include<stdio.h>
+int main()
+{
+	int a;
+	printf("Enter the your age: ");
+	scanf("%d",&a);
+	if(a>=18)
+	printf("You are not minor:");
+	else
+	printf("You are minor:");
+}
+
+
+
+/* 2.  Write a program scan year and print year is leap year or not. */
+
+#include<stdio.h>
+int main()
+{
+	int a,b;
+	printf("Enter the year: ");
+	scanf("%d",&a);
+	if(a%4==0)
+	printf("%d year is an leap year:",a);
+	else
+	printf("%d year is not leap year:",a);
+}
+
+
+
+/* 3. Write a program scan age of person and print person is major or minor. */
+
+#include<stdio.h>
+int main()
+{
+	int a;
+	printf("Enter the your age: ");
+	scanf("%d",&a);
+	if(a>=18)
+	printf("You are major:");
+	else
+	printf("You are minor:");
+}
+
+
+
+
+/*4.Write a program scan age of person and print person is minor, major or senior citizen.*/
+
+#include<stdio.h>
+
+int main() 
+{
+    int age;
+    printf("Enter the age: ");
+    scanf("%d", &age);
+    if (age < 18) 
+	{
+        printf("You are a minor.\n");
+    } 
+	else if (age >= 18 && age <= 59) 
+	{
+        printf("You are a major.\n");
+    } 
+	else 
+	{
+        printf("You are a senior citizen.\n");
+    }
+    return 0;
+}
+
+
+
+
+/* 5. Write a program scan number between
+1 to 500
+---- print number between 1 to 250
+--- print number between 251 to 500
+--- print number not in 1 to 500 */
+
+#include<stdio.h>
+int main()
+{
+	int a;
+	printf("Enter the Number between 1 to 500: ");
+	scanf("%d",&a);
+	if(a>=1 && a<=250)
+	{
+		printf("%d : Number is between 1 to 250",a);
+	}
+	else if(a>=251 && a<=500)
+	{
+		printf("%d : Number is between 251 to 500",a);
+	}
+	else
+	{
+		printf("%d is not between 1 to 500:",a);
+	}
+}
+
+
+
+
+/*6.Write a program scan rollno and name of student scan 3 subject
+marks calculate total and percentage give class as distinction first 
+class second class or fail */
+
+#include<stdio.h>
+int main() {
+    char name[30];
+    int rollno, sub1, sub2, sub3, total, a, b, c;
+    float per;
+
+    printf("Enter the Name: ");
+    scanf("%s", name);
+
+    printf("Enter the First Subject:\t");
+    scanf("%d", &sub1);
+    printf("Total Marks of First Subject:\t");
+    scanf("%d", &a);
+
+    printf("Enter the Second Subject:\t");
+    scanf("%d", &sub2);
+    printf("Total Marks of Second Subject:\t");
+    scanf("%d", &b);
+
+    printf("Enter the Third Subject:\t");
+    scanf("%d", &sub3);
+    printf("Total Marks of Third Subject:\t");
+    scanf("%d", &c);
+
+    total = sub1 + sub2 + sub3;
+
+    int mark = a + b + c;
+
+    per = ((float)total / mark) * 100;
+
+    printf("\nName: %s", name);
+    printf("\nThe First Subject :\t%d", sub1);
+    printf("\nThe Second Subject :\t%d", sub2);
+    printf("\nThe Third Subject :\t%d", sub3);
+    printf("\nTotal :\t%d", total);
+    printf("\tPercentage : \t%.2f", per); 
+
+    if (per >= 70 && per <= 100) {
+        printf("\tFirst Class with Distinction/First Division with Distinction");
+    } else if (per >= 60 && per < 70) {
+        printf("\tFirst Class/First Division");
+    } else if (per >= 50 && per < 60) {
+        printf("\tSecond Class/Second Division");
+    } else if (per >= 35 && per < 50) {
+        printf("\tThird Class/Third Division/Pass Class");
+    } else {
+        printf("\tFailed");
+    }
+}
+
+
+
+/* 7. Write a program scan character and print character is vowel or not */
+
+#include<stdio.h>
+int main() 
+{
+    char ch;
+    printf("Enter a character: ");
+    scanf("%c", &ch);
+    if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
+        ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') 
+        printf("%c is a vowel.\n", ch);
+	else 
+        printf("%c is not a vowel.\n", ch);
+    return 0;
+}
+
+
+
+/* 8. Write a program scan number 0-9 print in word*/
+
+#include<stdio.h>
+int main() 
+{
+    int ch;
+    printf("Enter a number between 0 and 9: ");
+    scanf("%d", &ch);
+
+    switch (ch) 
+	{
+        case 0:
+            printf("Zero\n");
+            break;
+        case 1:
+            printf("One\n");
+            break;
+        case 2:
+            printf("Two\n");
+            break;
+        case 3:
+            printf("Three\n");
+            break;
+        case 4:
+            printf("Four\n");
+            break;
+        case 5:
+            printf("Five\n");
+            break;
+        case 6:
+            printf("Six\n");
+            break;
+        case 7:
+            printf("Seven\n");
+            break;
+        case 8:
+            printf("Eight\n");
+            break;
+        case 9:
+            printf("Nine\n");
+            break;
+        default:
+            printf("Invalid input! Please enter a number between 0 and 9.\n");
+    }
+}
+
+
+
+/* 9. Write a program create a menu
+	1. odd/even
+	2. major/ minor
+	3. largest number from 2 numbers */
+	
+#include<stdio.h>
+
+int main() {
+    int ch, a, b, c;
+    printf("1. odd/even\n2. major/minor\n3. largest number from 2 numbers\n");
+    scanf("%d", &ch);
+
+    switch(ch) 
+	{
+        case 1:
+            printf("Enter the number that you want to check: ");
+            scanf("%d", &a);
+            if(a % 2 == 0)
+                printf("%d is an Even Number.\n", a);
+            else
+                printf("%d is an Odd Number.\n", a);
+            break;
+        case 2:
+            printf("Enter your age: ");
+            scanf("%d", &a);
+            if(a >= 18)
+                printf("You are MINOR.\n");
+            else
+                printf("You are MAJOR.\n");
+            break;
+        case 3:
+            printf("Enter the first number: ");
+            scanf("%d", &b);
+            printf("Enter the second number: ");
+            scanf("%d", &c);
+            if(b > c)
+                printf("%d is larger than %d.\n", b, c);
+            if (c > b)
+                printf("%d is larger than %d.\n", c, b);
+            break;
+        default:
+            printf("Invalid choice!\n");
+    }
+}

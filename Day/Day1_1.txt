@@ -1,0 +1,280 @@
+structuer of C program
+
+#include<headerfile>
+
+main()
+{
+variable define;
+Input Statement;
+Process Statement;
+Output Statement;
+}
+
+-------------------
+( )  function
+{  }  group define
+[ ]  Size 
+< > header  file
+complexity
+	i) Space Complexity(Variable)
+       ii) Time Complexity(Loop)
+
+variable
+Datat_Type         Size         format specificer
+int                       4byte        %d
+long int               8byte        %ld
+float                   4byte        %f
+double/long float 8byte      %lf
+char                      1byte     %c or %s
+
+1. 
+int /long int
+syntax
+int variable_name;
+Example
+static variable          dynamic variable
+int a=10;                 int x;
+long x=10000;       long int y;
+
+Rules how to define variable
+
+1. int a,b,c;
+2. int A;
+3. int rollno;
+4. int roll_no;
+5. int a3;
+not allowed
+ int 3a;
+ int roll*no;
+int roll no;
+int $x;
+
+2.
+float/double
+static variable     dynamic variable
+float x=45.78;          float y;
+double y=1582.369; double x;
+
+3.
+char - character
+Syntax
+static                      dynamic
+char c='A';           char c;
+(it is occupied 1 byte space in memory)
+
+char s[10]="CDAC";    char s[30];
+s variable is occupied
+4 byte space in memory
+char s[255]; (up to 255)
+
+string  s; in s you can stored un limited
+character.
+
+
+Function
+i) standered function
+ii) user define function(udf)		
+
+Standered function
+Basic std function
+1. scanf() :- input function
+2. printf() :- output function
+( stdio.h)
+
+3. clrscr();
+4. getch();
+(conio.h)
+
+1. scanf()
+Syntax
+scanf("formatSpecifier",&variable);
+Example
+int a;
+scanf("%d",&a);
+10	
+scanf("%d",a); //logical error
+10
+
+2. printf()
+	i) print any type of message
+	syntax
+	printf("Message");
+	Example
+	printf("Hello Friends");
+		\n new line
+		\t tab
+	ii) print value of variable
+	syntax
+	printf("format specificer",variable);
+Example
+int a;
+scanf("%d",&a);
+45;
+printf("%d",a);
+45
+printf("A=%d",a);
+A=45
+printf("Roll Number=%d",a);
+Roll Number=45
+
+Operator
+1. Math 
+int a=4,b=5,c;
++  addition  c=a+b;
+- subtraction	c=a-b;
+* multiplication c=a*b;
+/ division   c=a/b;
+% mod    c=a%b; 
+
+2. unary operator
+++  increment by 1
+--  decrement by 1
+
+int a=10;
+a++;  a=a+1;
+a--;  a=a-1;
+
+3. Assignment(compare)
+
+==  equal to(compare)
+int a=10,b=10;
+a==b   true
+
+!= not equal to
+int a=3,b=4;
+a!=b  true
+
+> greater than  
+>= greater than equal to
+< less than
+<= less than equal to
+
+int a=10;
+a>10  false  10>10
+a>=10  true  10>=10
+
+4. Logical Operator
+
+&&  And
+a=10
+b=4
+c=5
+a>b && a>c
+
+|| or
+a>b ||a >c
+
+Program files
+
+program.c   scource code
+program.exe executable file
+
+program.obj (machine level )	
+
+
+Control statement or 
+conditional statement
+
+1. if...else
+2. switch
+
+1. if..else
+Types of if..else
+1. simple if
+Syntax
+if(condition)
+true ans;
+
+***2. if..else statement
+syntax
+if(condition)
+	true ans;
+	else
+	false ans;
+
+
+3. Embedded if else of if..else block
+syntax
+if(condition)
+{
+true ans;
+}
+else
+{
+false ans;
+}
+***4. Nested if ...else
+Syntax
+if(condition)
+true ans;
+	else
+	if(condition)
+	true ans;
+		else
+		false ans;
+
+2. switch
+	syntax
+	switch(choice_variable)
+	{
+	case value : process statement;
+	break;
+	case value: process statement;
+	break;
+	default: default ans;
+	}
+/*
+Write a program to create menu driven
+as 
+Addition
+subtraction
+multiplication
+
+*/
+
+#include<stdio.h>
+main()
+{
+int a,b,c,ch; 
+printf("\n1. Addition");
+printf("\n2. Subtraction");
+printf("Enter Two numbers");
+scanf("%d%d",&a,&b);
+printf("Enter Choice");
+scanf("%d",&ch);
+
+switch(ch) //ch=1
+{
+	case 1:
+		c=a+b;
+		printf("Addition =%d",c);
+		break;
+		case 2:
+		c=a-b;
+		printf("Subtraction =%d",c);
+		break;
+		default:
+			printf("Invalid Choice");
+}
+
+}
+
+Loop	
+	Types of Loop
+	1) while loop
+	2) do...while
+	3) for loop
+		i. simple for loop
+	       ii. nested for loop
+
+
+
+
+
+
+
+
+
+
+
+

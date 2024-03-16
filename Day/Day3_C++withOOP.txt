@@ -1,0 +1,753 @@
+-- Array With Objects
+
+	user defined group of objects using array with objects. using index user
+access each object. using this reduced the length of program
+Syntax
+
+classname object[size];
+Example
+
+/*
+Write a program  which create Account class
+with members
+account_no
+account_holdername
+typeofaccount
+balance
+	stored 10 account holder details
+*/
+
+#include<iostream>
+using namespace std;
+class Account
+{
+private:
+	int acc_no;
+	char holder_name[50],type[50];
+	float balance;
+
+public:	
+
+	void set_account()
+	{
+		cout<<"\nEnter account number and name";
+		cin>>acc_no>>holder_name;
+		cout<<"\nEnter type of accounts and balance";
+		cin>>type>>balance;
+	}
+	
+	void get_account()
+	{
+		cout<<"\n"<<acc_no<<"\t\t"<<holder_name;
+		cout<<"\t\t"<<type<<"\t\t"<<balance;
+		
+	}
+	
+	int bal()
+	{
+		return(balance);
+	}
+	
+};
+main()
+{
+	Account obj[10];
+	int i,total=0;
+	cout<<"\nEnter 10 Account holder details";
+	for(i=0;i<3;i++)
+	{
+	obj[i].set_account();	
+	total=total+obj[i].bal();
+	
+	}
+	
+	cout<<"\nAccount Holder Details";
+	cout<<"\nAccount Number      Name        Type      Balance\n";
+	cout<<"\n---------------------------------------------------";
+	for(i=0;i<3;i++)
+	{
+	obj[i].get_account();	
+	}
+	cout<<"\n-----------------------------------------------------";
+	cout<<"\n\tTotal Balance of Holders="<<total;
+	
+}
+
+
+/*
+
+*/
+
+#include<iostream>
+using namespace std;
+class Emp
+{
+private:
+	int empid,salary;
+	char name[50];
+
+public:	
+
+	void set()
+	{
+		cout<<"\nEnter Employee Id Name and salary";
+		cin>>empid>>name>>salary;
+		
+	}
+	
+	void get()
+	{
+		cout<<"\n"<<empid<<"\t\t"<<name<<"\t\t"<<salary;
+		
+			}
+	
+	int bal()
+	{
+		return(salary);
+	}
+	
+};
+main()
+{
+	Emp obj[10];
+	int i,total=0,max=0;
+	float avg;
+	cout<<"\nEnter 10 Employee details";
+	for(i=0;i<3;i++)  //i=0 i++  i=1
+	{
+	obj[i].set();	
+	total=total+obj[i].bal(); //0=0+9000  total9000=9000+7000  total=16000
+	
+		if(obj[i].bal()>max) //7000>9000
+		{
+			max=obj[i].bal();  //max=9000
+			
+		}
+	}
+	avg=total/3;
+	cout<<"\nEmployee  Details";
+	cout<<"\nEmp Number      Name        Salary     \n";
+	cout<<"\n---------------------------------------------------";
+	for(i=0;i<3;i++)
+	{
+	obj[i].get();	
+	}
+
+	cout<<"\n-----------------------------------------------------";
+	cout<<"\n\tTotal Salary         ="<<total;
+	cout<<"\n\tAverage Salary         ="<<avg;
+	
+	cout<<"\nhighest Employee  Details";
+	cout<<"\nEmp Number      Name        Salary     \n";
+	cout<<"\n---------------------------------------------------";
+	
+
+	for(i=0;i<3;i++)
+	{
+		if(max==obj[i].bal())
+	      obj[i].get();	
+	}
+
+}
+------------------------
+
+Polymorphisam
+	1) compile time polymorphisam
+			i) function overloading
+			ii) operator overloading
+	2.) Run time polymorphisam
+			i) virtual function 
+				(Inheritance, pointer to object)
+			ii) function Overridding
+				  (Inheritance)
+Polymorphisam
+The word “polymorphism” means having many forms. In simple words, 
+we can define polymorphism as the 
+ability of a message to be displayed in more than one form. 
+1.  	function overloading
+		In a one program or one class user can defined multiple user
+define function with same name which known as function overloading.
+		They execute according thier parameter and return datatype
+Syntax
+int fun()
+{
+}
+void fun(int x int y)
+{
+}
+float fun(float x,flat y, float z)
+{
+}
+//function overloading
+#include<iostream>
+using namespace std;
+class Test
+{
+	private:
+		int a,b;
+		float p,q;
+		char name[40];
+	public:
+		void add()
+		{
+			cout<<"Enter value for a ";
+			cin>>a;
+			b=a+a;
+			cout<<"\nA="<<a<<"\nB="<<b;
+			cout<<"\nEnter Name";
+			cin>>name;
+			cout<<"\nName"<<name;
+		}
+		
+		float add(float x)
+		{
+			p=x;
+			q=x;
+			return(p*q);
+		}
+		
+		int add(int x,int y)
+		{
+			a=x;
+			b=y;
+			return(a+b);
+		}
+
+};
+main()
+{
+	Test my_obj;
+	int ans;
+	cout<<"\nAddition="<<my_obj.add(12,45);
+	//or
+	ans=my_obj.add(10,30);
+	cout<<"\nAddition of ans="<<ans;
+	
+	Test obj;
+	obj.add();
+	
+	cout<<"\nFloat ="<<obj.add(12.45);
+	
+	
+	
+	
+}
+operator overloading
+		operator is a reserved keyword.
+		operator overloading is a type of function which is member of class.
+		when user used operator with object that time compiler search 
+where user create function with operator keyword
+	
+//Operator overloading
+#include<iostream>
+using namespace std;
+class Test
+{
+	private:
+		int a,b,c;
+		public:
+		void add_Number(int x,int y,int z)
+		{
+			a=x;
+			b=y;
+			c=z;
+		}
+		
+		void show()
+		{
+			cout<<"\nA= "<<a<<"\nB= "<<b<<"\nC= "<<c;
+		}
+		
+		//unary operator overloading function
+		void operator -()
+		{
+			a= -a;
+			b= -b;
+			c= -c;
+		}
+		
+		void operator +()
+		{
+			a= +a;
+			b= +b;
+			c= +c;
+		}
+};
+main()
+{
+	Test my_obj;
+	my_obj.add_Number(-45,10,-67);
+	my_obj.show();
+	
+	//unary operator with object
+	cout<<"\nAfter Unary operator overloading";
+	-my_obj;
+	my_obj.show();
+	
+	+my_obj;
+	my_obj.show();
+	
+		
+}
+
+Syntax for Process operator overloading function
+	
+classname  operator overload_operator(classname object)
+{
+classname object;
+process statement;
+return(object);
+}
+
+//Operator overloading
+#include<iostream>
+using namespace std;
+class Test
+{
+	private:
+		int a,b;
+		float c;
+		public:
+		//parameterized constructor
+		Test(int x,int y)
+		{
+			a=x;
+			b=y;
+			c=1.5;
+		}
+		
+		void show()
+		{
+			cout<<"\nA= "<<a<<"\nB= "<<b<<"\nC="<<c;
+		}
+		//operator overload function for +
+		Test operator +(Test &obj) //obj is reprsent to T2
+		{
+			Test temp(0,0);
+			temp.a= a+ obj.a;
+			temp.b =b+ obj.b;
+			return(temp);
+		}
+};
+main()
+{
+		Test T1(10,20),T2(20,20),T3(0,0);
+		
+		T1.show();
+		cout<<"\n---------------";
+		T2.show();
+		cout<<"\n---------------";
+		
+		T3=T1+T2; //operator overload function for + operator
+		//T3 ans   T1  pre object + T2 post object
+		// operator overload function call for T1 object
+		//T2 as a paramter
+		
+		T3.show();
+		
+}
+-----------------------------------------
+Static data member or static variable
+		static is a reserved keyword. 
+		In class user defined variable with static keyword.
+	  ** If user defined variable as static so it value is work for
+		same to all objects.		
+	**  In C++ if user defined variable as static the give defination after
+class and before main() with ::(scope resoluation) operator.
+	** when first object is created that time static variable has intialize 
+by 0 value
+
+
+#include<iostream>
+using namespace std;
+class Test
+{
+	private:
+		int a,b;
+		static int count;
+	public:
+			void set_data()
+			{
+				cout<<"Enter value for a and b";
+				cin>>a>>b;
+				count++;
+				b++;
+			}
+			
+			void show_data()
+			{
+				cout<<"\nA="<<a<<"\nB="<<b;
+				cout<<"\nCount="<<count;
+			}
+	
+};
+//defination
+int Test ::count;
+
+main()
+{
+	
+	Test T1,T2;
+	T1.show_data();	
+	T2.show_data();
+	cout<<"\nT1 Object";
+	T1.set_data();
+	T1.show_data();	
+	cout<<"\nT2 Object";	
+	T2.set_data();
+	T2.show_data();
+	
+	cout<<"\nT1-------------";
+		T1.show_data();
+		
+		Test obj;	
+	
+}
+
+Static member function or static function
+		In a class user defined function using static keyword which is known
+as static function.
+	     Inside the static function used only static variable.
+	     Static function can't call with object and dot operator.
+	    static function is called in main program as
+	   classname::functionname();	
+
+
+#include<iostream>
+using namespace std;
+class Test
+{
+	private:
+		int a,b;
+		static int count;
+	public:
+			void set_data()
+			{
+				cout<<"\nEnter value for a and b";
+				cin>>a>>b;
+				count++;
+				
+			}
+			
+			void show_data()
+			{
+				cout<<"\nA="<<a<<"\nB="<<b;
+				cout<<"\nCount="<<count;
+			}
+			
+			//static function
+			static void show()
+			{
+				cout<<"\nCount="<<count;
+			}
+	
+};
+//defination
+int Test ::count;
+
+main()
+{
+	
+	Test T1,T2;
+	//call static function
+	Test::show();
+	cout<<"\nT1-----------";
+	T1.set_data();
+	T1.show_data();
+	cout<<"\nT2-----------";
+	T2.set_data();
+	T2.show_data();
+	
+	cout<<"\n-----------";
+	Test::show();	
+	
+}
+
+	
+
+
+
+
+------------------------------------------------
+friend class
+		
+It is a featuer of OOP.
+		friend is a reserved keyword.
+		In OOP user can't access the private variable of one class to
+	       another class.
+		Using friend class user used the private variable of one class to
+	      another class using friend defination.
+
+Syntax
+class A
+{
+friend class B;
+};
+class B
+{
+
+}
+
+#include<iostream>
+using namespace std;
+class A
+{
+	private:
+		int x;
+	public:
+		void getA()
+		{
+			cout<<"Enter x value";
+			cin>>x;
+		}
+		
+		void showA()
+		{
+			cout<<"\nX="<<x;
+			
+		}
+		
+friend class B;		
+};
+
+
+class B
+{
+	private:
+		int y,ans;
+		public:
+			void getB(A &obj)
+			{
+				cout<<"\nEnter value for y";
+				cin>>y;
+				ans=y+obj.x;
+			}
+		void showB()
+		{
+			cout<<"\nY="<<y<<"\nAns="<<ans;
+			
+		}	
+			
+	
+};
+
+
+main()
+{
+	A a1; // A is a class
+	B b1;  // B is a class
+	a1.getA();
+	a1.showA();
+	cout<<"\n-----------";
+	b1.getB(a1); //a1 is a function as an object argument
+	b1.showB();
+}
+
+/*
+Write a program which print the largest tempratuer
+of two city
+city1  Nashik
+city2 Mumbai
+*/
+#include<iostream>
+using namespace std;
+class Nashik
+{
+	private: 
+	int temp;
+	public:
+		void get()
+		{
+			cout<<"Enter Nashik City Tempratuer";
+			cin>>temp;
+		}
+		void show()
+		{
+			
+			cout<<"\nNashik Tempratuer= "<<temp;
+		}
+		
+friend class Mumbai;
+};
+
+class Mumbai
+{
+	private: 
+	int temp;
+	public:
+		void get()
+		{
+			cout<<"\nEnter Mumbai City Tempratuer";
+			cin>>temp;
+		}
+		void show()
+		{
+			
+			cout<<"\nMumbai Tempratuer= "<<temp;
+		}
+		
+		void comp(Nashik &obj)
+		{
+			if(temp >obj.temp)
+			cout<<"\nMax Mumbai Tempratuer= "<<temp;
+			else
+			{
+			cout<<"\nMax Tempratuer";
+			obj.show();
+			}
+			
+			
+			
+		}
+		
+};
+
+
+main()
+{
+	Nashik n1;
+	n1.get();
+	n1.show();
+	Mumbai m1;
+	m1.get();
+	m1.show();
+	cout<<"\n==========";
+	m1.comp(n1);
+	
+}
+
+Friend Function
+		Like friend class user used the concept friend function.
+	**  function which is not member of any class but user access the
+private  variable of all class into function. 
+It is possible when user give the defination of friend function in all class;
+Syntax
+class B; //defination of class B
+
+class A
+{
+
+friend void comp(A a1,B b1);
+};
+class B
+{
+
+friend void comp(A a1,B b1);
+};
+
+void comp(A a1,B b1)
+{
+
+}
+
+main()
+{
+A a1;
+B b1;
+comp(a1,b1); // a1 is a object of A class b1 is a object B class
+}
+		
+/*
+Write a program which print the largest tempratuer
+of two city
+city1  Nashik
+city2 Mumbai
+*/
+#include<iostream>
+using namespace std;
+class Mumbai;
+
+class Nashik
+{
+	private: 
+	int temp;
+	public:
+		void get()
+		{
+			cout<<"Enter Nashik City Tempratuer";
+			cin>>temp;
+		}
+		void show()
+		{
+			
+			cout<<"\nNashik Tempratuer= "<<temp;
+		}
+		
+friend void comp(Nashik &obj ,Mumbai &mobj);
+};
+
+class Mumbai
+{
+	private: 
+	int temp;
+	public:
+		void get()
+		{
+			cout<<"\nEnter Mumbai City Tempratuer";
+			cin>>temp;
+		}
+		void show()
+		{
+			
+			cout<<"\nMumbai Tempratuer= "<<temp;
+		}
+		
+friend void comp(Nashik &obj ,Mumbai &mobj);	
+		
+};
+
+//friend function
+	void comp(Nashik &obj ,Mumbai &mobj)
+		{
+			if(mobj.temp >obj.temp)
+			{
+			cout<<"\nMax Mumbai Tempratuer= ";
+			mobj.show();	
+			}
+			
+			else
+			{
+			cout<<"\nMax Tempratuer";
+			obj.show();
+			}
+			
+			
+			
+		}
+
+main()
+{
+	Nashik n1;
+	n1.get();
+	n1.show();
+	Mumbai m1;
+	m1.get();
+	m1.show();
+	cout<<"\n==========";
+	comp(n1,m1); //Nashik  Mumbai
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------
+Assignment
+1. Write a program create Employee class
+with members empid name and salary
+--for 5 employee
+-- calculate total salary and avg salary of employees.
+
+

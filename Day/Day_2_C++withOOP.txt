@@ -1,0 +1,792 @@
+#include<iostream>
+using namespace std;
+struct product
+{
+int id;
+char name[30]	;
+float cost;
+};
+
+main()
+{
+	struct product pen, pendrive;
+	float total;
+	cout<<"\nEnter productid name and cost";
+	cin>>pen.id>>pen.name>>pen.cost;
+	cout<<"\nEnter productid name and cost";
+	cin>>pendrive.id>>pendrive.name>>pendrive.cost;
+	cout<<"\nProduct Details";
+	cout<<"\nProduct Id="<<pen.id<<"\nName="<<pen.name<<"\nCost="<<pen.cost;
+	cout<<"\nProduct Id"<<pendrive.id<<"\nName="<<pendrive.name<<"\nCost="<<pendrive.cost;
+	total=pen.cost+pendrive.cost;
+	cout<<"\nTotal="<<total;
+}
+
+/*
+Write a program create struct
+product with member variable
+ product id
+ product name
+ cost of product
+ 
+ create object for 5 products
+ 
+ print total of 5 products
+array with objects
+*/
+#include<iostream>
+using namespace std;
+struct product
+{
+int id;
+char name[30]	;
+float cost;
+};
+
+main()
+{
+	struct product obj[5];
+	int i;
+	float total=0;
+	for(i=0;i<5;i++)
+	{
+	cout<<"\nEnter productid name and cost";
+	cin>>obj[i].id>>obj[i].name>>obj[i].cost;
+	total=total+obj[i].cost;
+	
+	}
+	
+	cout<<"\nProduct Details";
+	for(i=0;i<5;i++)
+	{
+	cout<<"\nProduct Id="<<obj[i].id<<"\nName="<<obj[i].name<<"\nCost="<<obj[i].cost;	
+	}
+	
+	
+	cout<<"\nTotal="<<total;
+}
+
+OOP's 
+
+-Object oriented programming
+Featuers
+- Execution approach bottom to top
+-class
+-objects
+-Data encapsulation
+- Data abstraction
+-Inheritance
+-polymorphisam
+-pointer
+class and objects
+class
+1. class is reserved keyword and extended version of struct.
+2. class is an user defined datatype which is not execute itself and not
+occupied any type of space in a memory.
+3. class is create with the help of class member or access specfier.
+	i) private
+		In a c++ class is bydefault private.
+		private members can't access outside the class.
+		In private defined dynamic variables or array.
+             
+	ii)public
+	 Public members can be access inside the class as well as outside the class.
+		-- member functions(udf),constructor,destructor,static function etc
+		-public members access with the help of object.
+	ii) protected
+		--it is used in case of Inheritace to dfined variable in Base class
+
+Object
+	 -object is an instance of class.
+	-Related to one class user can defined multiple objects. but all
+	  objects work in different areas	
+	- In C++ by default object has grabage value.
+	- class members access with the object using Dot(.) operator
+
+Syntax of OOP's Program
+
+class classname
+{
+
+private:
+	//variable (member variable or data members)
+
+public:
+	//member function
+
+protected:
+	// define variable in base class which used in derived class
+
+};
+
+main()
+{
+classname object1,object2;
+}
+
+
+Fucntion as an argument
+
+(Actual Arguments and Formal Arguments)
+		when user pass any type of value main program to class
+functions i.e known as function as an argment.
+
+*** Constructor
+		It is a special feature of OOP which execution is not depend on
+user.
+	 Important concepts of Constructor
+1. constructor defined in a public member. constructor name and 
+class name should be same.
+2. constructor does not required any return data type because it is 
+not return any value.
+**3. No need to call constructor with object. It is execute automatically
+when object is created.(user can't start or stop the execution of constructor)
+4. In a one class user create only single default constructor but multiple 
+parameterized constructor.
+
+Types of Constructor
+1. Default Constructor or parameter less constructor
+2. Parameterized constructor
+3.Copy constructor
+4. Dynamic constructor
+
+1. Default Constructor or parameter less condtructor
+	In a class only one defualt constructor is required.
+	In this set the default values.
+Syntax
+classname()
+{
+variable=value;
+}
+
+2. Paramterized constructor
+	In this constructor pass parameter through object .
+	In one class user defined more than one parameterized constructor 
+they execute according to their calling sequence not create sequence.
+
+syntax
+classname(parameter)
+{
+variable=value;
+}
+
+3. Copy construactor
+		it is used to copy the contain of one object to another object;
+Syntax
+classname(classname &object)
+{
+variable=object.variable;
+}
+
+---------------------Destructor
+--It is destroyed(delete) the objects from memory.
+-destructor delete object from memory in a reverse format.
+- destructor is define in a public member of class.
+-destructor name and class name should be same but destructor defined
+using ~ (tild)
+-no need to call destructor with object. At the end of program all
+objects is deleted as reverse format.
+Syntax
+~classname()
+{
+
+}
+		
+
+
+/*
+create a class Test having
+member variable as a,b,c;
+
+*/
+#include<iostream>
+using namespace std;
+
+class Test
+{
+
+private:
+int a,b,c;	
+public:
+	
+	void get_info()
+	{
+		a=12;
+		b=5;
+		c=a+b;
+	}
+	
+	void show_info()
+	{
+		cout<<"\nA="<<a<<"\nB="<<b<<"\nC="<<c;
+	}
+};
+
+main()
+{
+Test t1,t2;
+t1.get_info();
+t1.show_info();
+t2.get_info();
+t2.show_info();
+
+	
+
+}
+
+---------------------
+
+/*
+create a class Test having
+member variable as a,b,c
+for two objects
+input from user
+
+*/
+#include<iostream>
+using namespace std;
+
+class Test
+{
+
+private:
+int a,b,c;	
+public:
+	
+	void get_info()
+	{
+		cout<<"\nEnter value for a and b";
+		cin>>a>>b;
+		c=a+b;
+	}
+	
+	void show_info()
+	{
+		cout<<"\nA="<<a<<"\nB="<<b<<"\nC="<<c;
+	}
+};
+
+main()
+{
+Test t1,t2;
+t1.get_info();
+t1.show_info();
+t2.get_info();
+t2.show_info();
+
+}
+
+#include<iostream>
+using namespace std;
+class student
+{
+	private:
+		int rno,total;
+		char name[30];
+	public:
+		void get_student()
+		{
+			cout<<"Enter Roll no name and total";
+			cin>>rno>>name>>total;
+		}
+		
+		void show_student()
+		{
+			cout<<"\nRoll No"<<rno<<"\nName"<<name<<"\nTotal"<<total;
+		}
+	
+};
+
+main()
+{
+	student s1,s2,s3;
+	s1.get_student();
+	s2.get_student();
+	s3.get_student();
+	s1.show_student();
+	s2.show_student();
+	s3.show_student();
+}
+//
+ #include<iostream>
+using namespace std;
+class employee
+{
+	private:
+		int eno,salary;
+		char name[40];
+	public:
+		void get_emp()
+		{
+			cout<<"\nEnter eno name salary";
+			cin>>eno>>name>>salary;
+		}
+		
+		void show()
+		{
+			cout<<"\nEmp No"<<eno<<"\nName"<<name<<"\nSalry"<<salary;
+		}
+		
+		//with return
+		
+		int fun()
+		{
+			return(salary);
+		}
+	
+};
+
+main()
+{
+	employee e1,e2,e3;
+	int total;
+	float avg;
+	e1.get_emp();
+	e2.get_emp();
+	e3.get_emp();
+	
+	e1.show();
+	e2.show();
+	e3.show();
+	
+	total=e1.fun()+e2.fun()+e3.fun();
+	avg=total/3;
+	cout<<"\nTotal Salary"<<total;
+	cout<<"\nAverage="<<avg;
+	
+	
+}//
+#include<iostream>
+using namespace std;
+
+class product
+{
+	private:
+		int id,qty;
+		float rate,amount,discount,net;
+		char name[40];
+		public:
+			
+		void get_product()
+		{
+			cout<<"Enter product id name rate and quantity";
+			cin>>id>>name>>rate>>qty;
+			amount=rate*qty;
+			discount=amount*10/100;
+			net=amount-discount;
+			
+			
+		}
+		
+		void show_product()
+		{
+			cout<<"\nBill";
+			cout<<"\nID="<<id<<"\nName="<<name;
+			cout<<"\nRate="<<rate<<"\nQuantity"<<qty;
+			cout<<"\nAmount"<<amount<<"\nDsicount"<<discount;
+			cout<<"\nNet amount="<<net;
+			
+		}
+};
+
+main()
+{
+	product jack,jill;
+	jack.get_product();
+	jack.show_product();
+}
+//
+
+//function as an argument
+#include<iostream>
+using namespace std;
+
+class Test
+{
+
+	private:
+	int a,b,c;
+	public:
+		
+		void set_data(int x,int y) //x and y is a formal argument
+		{
+		a=x;
+		b=y;
+		c=a+b;	
+		}
+		
+		void show()
+		{
+			cout<<"\nA="<<a<<"\nB="<<b<<"\nC="<<c;
+		}
+		
+};
+
+main()
+{
+	Test t1,t2;
+		t1.set_data(5,7); //5 and 7 actual argement
+		t1.show();
+		
+		int p,q;
+		cout<<"Enter value for p and q";
+		cin>>p>>q;  //p=67  q=3
+		t2.set_data(p,q);
+		t2.show();
+		
+		
+		
+	
+}
+//
+1. write a program create student class 
+with members 
+rollno
+name 
+total 
+for 3 students
+read and print the information of three object.
+
+2. Write a program create class Employee with member variable
+empno
+name 
+salary
+
+for 3 objects
+calculate the total salary
+and average salary
+
+3.Write a program create product class
+take value from user
+as product id ,name of product and ,quantity of product,rate of product
+
+calculate amount 
+calculate discount= 10% on amount
+
+calculate net amount
+and print bill for 2 customer
+
+4. Write a program create FD(fixed Deposit)
+   with members 
+	fd number, customer name
+	principal_amount rate of interest and number of years
+      then calculate simple interest=p*r*n/100
+amount=p+si;
+
+5. Write a program which create city class and set the tempratuer inside
+the constructor.(default)
+
+6. Write a program create student class
+		1. default constructor stored FE total_marks
+		2. create parameterized constructor and pass SE and TE total marks
+		3.  create parameterized constructor and pass BE percentage
+
+
+
+
+////////////////////////
+for 2 customers
+/////////////////////////
+//Default constructor
+
+#include<iostream>
+using namespace std;
+class Test
+{
+	private:
+	int a,b,c;
+	public:
+		//default constructor
+		Test()
+		{
+			a=12;
+			b=5;
+			c=a*b;
+		}
+		void show()
+		{
+			cout<<"\nA="<<a<<"\nB="<<b<<"\nC="<<c;
+		}
+		
+};
+main()
+{
+	Test t1;
+	t1.show();
+	Test my_test;
+	my_test.show();
+		
+	
+}
+
+//Default constructor
+
+#include<iostream>
+using namespace std;
+class Test
+{
+	private:
+	int a,b;
+	float c;
+	public:
+		//default constructor
+		Test()
+		{
+			a=12;
+			b=5;
+			c=0.0;
+		}
+		void show()
+		{
+			cout<<"\nA="<<a<<"\nB="<<b<<"\nC="<<c;
+		}
+		
+};
+main()
+{
+	Test t1;
+	t1.show();
+	Test my_test;
+	my_test.show();
+	
+		
+	
+}
+
+
+/*
+set rate value as 500
+
+*/
+
+#include<iostream>
+using namespace std;
+
+class product
+{
+	private:
+		int id,qty;
+		float rate,amount,discount,net;
+		char name[40];
+		public:
+			product()
+			{
+				rate=500;
+			}
+			
+		void get_product()
+		{
+			cout<<"Enter product id name and quantity";
+			cin>>id>>name>>qty;
+			amount=rate*qty;
+			discount=amount*10/100;
+			net=amount-discount;
+			
+			
+		}
+		
+		void show_product()
+		{
+			cout<<"\nBill";
+			cout<<"\nID="<<id<<"\nName="<<name;
+			cout<<"\nRate="<<rate<<"\nQuantity"<<qty;
+			cout<<"\nAmount"<<amount<<"\nDsicount"<<discount;
+			cout<<"\nNet amount="<<net;
+			
+		}
+};
+
+main()
+{
+	product p,sale;
+	p.get_product();
+	p.show_product();
+	sale.get_product();
+	sale.show_product();
+	
+}
+
+//Default constructor
+
+#include<iostream>
+using namespace std;
+class Test
+{
+	private:
+		int a,b;
+		float c;
+		char ch;
+	public:
+		Test()
+		{
+			a=1100;
+			ch='Y';
+		}
+		
+		//parameterized construcator
+		Test(int x,float y) //x=12  y=67.90
+		{
+			a=x;
+			c=y;
+		}
+		
+		Test(int x,int y,float z,char ans)
+		{
+			b=y;
+			a=x;
+		
+			c=z;
+			ch=ans;
+		}
+		void show()
+		{
+			cout<<"\nA="<<a<<"\nB="<<b<<"\nC="<<c<<"\nAns="<<ch;
+		}
+	
+};
+
+main()
+{
+		Test t;	
+		cout<<"\nt object-------------";
+		t.show();
+		cout<<"\nmy_test object-------------";
+		Test my_test(100,200,300.15,'N');
+		my_test.show();
+		
+		cout<<"\nobj-------------";
+		Test obj(12,67.90);
+		obj.show();
+		
+		
+}
+
+
+//Default constructor
+
+#include<iostream>
+using namespace std;
+class student
+{
+	private:
+		int FE,SE,TE;
+		float BE;
+	public:
+		student()
+		{
+         FE=500;
+	}
+	
+	student(int S, int T)
+	{
+		SE=S;
+		TE=T;
+	}
+	student(float b)
+	{
+		BE=b;
+	}
+	
+		
+		void show()
+		{
+		cout<<"\nFE="<<FE<<"\nSE="<<SE<<"\nTE="<<TE<<"\nBE="<<BE;
+		}
+	
+};
+
+main()
+{
+		
+		student first;
+		first.show();
+		student second(300,400);
+		second.show();
+		student third(89.56);
+		second.show();
+		
+		
+}
+
+
+//Default constructor
+
+#include<iostream>
+using namespace std;
+class sample
+{
+	private:
+	int a;
+	float b;
+	public:
+		sample()
+		{
+			a=100;
+			b=567.89;
+		}
+		
+		sample(sample &obj)  //obj is formal object it is represent to first_obj
+		{
+			a=obj.a;
+			b=obj.b;
+			
+		}
+		void show_data()
+		{
+			cout<<"\nA="<<a<<"\nB="<<b;
+		
+		}
+	
+};
+
+main()
+{
+	sample first_obj;
+	first_obj.show_data();
+	sample second_obj(first_obj); //object as an a argument
+	second_obj.show_data();
+	
+	
+}
+
+
+#include<iostream>
+using namespace std;
+class Test
+{
+	private:
+		int a;		
+	public:
+	
+	Test(int count)
+	{
+		a=count;
+	}
+		//Destructor
+		~Test()
+		{
+			cout<<"\n"<<a<<"=Object Destroyed!!!";
+		}
+		void show()
+		{
+			cout<<"\nA="<<a;
+		}
+	
+};
+
+main()
+{
+		Test t(1);	
+		cout<<"\nt object-------------";
+		t.show();
+		
+		cout<<"\nmy_test object-------------";
+		Test my_test(2);
+		my_test.show();
+		
+		cout<<"\nobj-------------";
+		Test obj(3);
+		obj.show();
+		
+		
+}

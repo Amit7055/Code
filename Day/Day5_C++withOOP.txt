@@ -1,0 +1,461 @@
+3. Multilvel Inheritance
+	It work like grandfather father and son relation ship.
+It means  Inherit A class into B class, inherit B class into C class.
+Syntax
+class A
+{
+
+};
+
+class B : public A
+{
+
+};
+
+clas C: public B
+{
+
+};
+
+#include<iostream>
+using namespace std;
+class A
+{
+	private:
+		int empid;
+		char name[30];
+		protected:
+			int salary;
+public:
+	void get_A()	
+	{
+		cout<<"\nEnter value for empid name and salary";
+		cin>>empid>>name>>salary;
+	}
+	void show_A()
+	{
+		cout<<"\nEmployee Information";
+		cout<<"\nId="<<empid<<"\nName="<<name<<"\nSalary="<<salary;
+	}
+};
+
+class B :public A
+{
+	private:
+		int salary1;
+	protected:
+		int total;
+		
+public:
+	void get_B()	
+	{
+		get_A();
+		cout<<"\nEnter value for salary";
+		cin>>salary1;
+		total=salary+salary1;
+	}
+	void show_B()
+	{
+		
+		cout<<"\nSalary1="<<salary1;
+	}
+};
+
+class C :public B
+{
+	private:
+		int salary2,net;
+			
+public:
+	void get_C()	
+	{
+		get_B();
+		cout<<"\nEnter value for salary";
+		cin>>salary2;
+		net=total+salary2;
+	}
+	void show_C()
+	{
+		
+		cout<<"\nSalary2="<<salary2;
+		cout<<"\nTotal Salary="<<net;
+	}
+};
+
+
+
+
+main()
+{
+	C obj;
+	obj.get_C();
+	obj.show_C();
+	
+}
+
+virtual base class
+virtual is a reserved keyword.
+virtual base calss is used incase of inheritance to set the relation between 
+base and derived class as indirect.
+
+
+#include<iostream>
+using namespace std;
+class A
+{
+	private:
+		int empid;
+		char name[30];
+		protected:
+			int salary;
+public:
+	void get_A()	
+	{
+		cout<<"\nEnter value for empid name and salary";
+		cin>>empid>>name>>salary;
+	}
+	void show_A()
+	{
+		cout<<"\nEmployee Information";
+		cout<<"\nId="<<empid<<"\nName="<<name<<"\nSalary="<<salary;
+	}
+};
+
+class B :virtual public A
+{
+	private:
+		int salary1;
+	protected:
+		int total;
+		
+public:
+	void get_B()	
+	{
+		//get_A();
+		cout<<"\nEnter value for salary";
+		cin>>salary1;
+		total=salary+salary1;
+	}
+	void show_B()
+	{
+		cout<<"\nSalary1="<<salary1;
+	}
+};
+
+class C :virtual public B
+{
+	private:
+		int salary2,net;
+			
+public:
+	void get_C()	
+	{
+		//get_B();
+		cout<<"\nEnter value for salary";
+		cin>>salary2;
+		net=total+salary2;
+	}
+	void show_C()
+	{
+		cout<<"\nSalary2="<<salary2;
+		cout<<"\nTotal Salary="<<net;
+	}
+};
+
+
+main()
+{
+	C obj;
+	obj.get_A();
+	obj.get_B();
+	obj.get_C();
+	obj.show_A();
+	obj.show_B();
+	obj.show_C();
+	
+}
+
+Constructor in Derived class
+		-- user easily used constructor with Inheritance.
+constructor execute when object is created. basicaly in case of inheritance
+user not defined  the object of base class. 
+		-- when derived class object is created so 1st create the object
+for base class then derived class same concept follow when user 
+execute default construtor in case of inheritance
+
+Pointer
+ ----------In C
+		Pointer is use to point out the value of one variable to another value.
+               pointer give the permission to used main memory.
+	     pointer give the permission to used the address of variable,array element,
+and object.
+		using pointer user used the concept of call by refference.
+
+&  Address
+		Using this use the address of variable,array element,object.
+In 'C' you can print the address using printf() and %u format specifier
+Syntax
+printf("%u",&variable);
+Example
+
+#include<stdio.h>
+main()
+{
+	int a;  //4 byte
+	float b; //4byte
+	char c;  //1 byte
+	printf("Enter value for a");
+	scanf("%d",&a);
+	printf("Enter value for n");
+	scanf("%f",&b);
+	printf("\nA=%d",a);
+	printf("\nn=%f",b);
+	
+	printf("\nAddress of A=%u",&a);
+	printf("\nAddress of B=%u",&b);
+	printf("\nAddress of C=%u",&c);
+}
+-------------------------
+
+*  pointer 
+		using this defined pointer variable and pointer object.
+pointer variable
+	when user defined variable as pointer that time that variable is not
+occupied any type of space in memory at the time of declration.
+To occupied memory for pointer variable use the concept is 
+dynamic memory allocation and deallocation.
+Syntax how to defined pointer variable.
+int *variable;
+
+In c used
+malloc() function is used to allocated the dynamic memory for pointer variable
+		-- sizeof() it is return the space in a byte .
+Syntax
+int *a; //a is a pointer variable
+a=(int *)malloc(sizeof(int));
+free() it is used to deallocated the allocated memory
+syntax
+free(a);
+
+Call by reference
+	it is a  used inside the user defined function. 
+	it is implement using pointer and give the permission to used main
+memory.
+/*
+Write a program scan two numbers and 
+swap using call by ref
+*/
+#include<iostream>
+using namespace std;
+void swap(int *x,int *y) //x formal it is represent a
+{
+	int temp;
+	temp=*x;
+	*x=*y;
+	*y=temp;
+	cout<<"\nSwap using function="<<"X= "<<*x<<"Y="<<*y;
+	
+}
+main()
+{
+	
+	int a,b;  
+	cout<<"Enter value for a";
+	cin>>a>>b;
+	swap(&a,&b); //udf
+	cout<<"\nMain Program="<<"A= "<<a<<"B="<<b;
+	
+}
+
+/*
+Write a program scan string 
+and calculate the length of string 
+without using std function.
+call by ref
+*/
+#include<iostream>
+using namespace std;
+int length(char *str)
+{
+	int i=0;
+	while(*str!='\0') //*str - it take value
+	{
+		i++; //i=1 i=2 i=3  i=4
+		str++; //shift address current position to next position
+	}
+return(i);	
+}
+main()
+{
+char str[40];
+int len;
+cout<<"\nEnter String";
+cin>>str;
+cout<<"\nString="<<str;
+len=length(str);
+cout<<"\nLength ="<<len;
+
+	
+}
+structuer with pointer
+(pointer to object)
+
+--Simple Structuer
+struct stud
+{
+int rollno;
+char name[30];
+};
+
+main()
+{
+struct stud s1;
+s1.rollno=12;
+}
+
+-- pointer to object
+struct stud
+{
+int rollno;
+char name[30];
+};
+
+main()
+{
+// 1st concept
+struct stud *s1; //pointer object
+s1.rollno=12;  //Error
+(*s1).rollno=12;  //dev c++
+s1->rollno=12; //valid 
+// 2nd concept
+
+struct stud *s1,d;
+s1=&d; // s1 is point out the address of d
+
+}
+
+------------------ C++ Pointer
+
+
+
+1.  Pointer to Object
+		In C++ user create two different of object i.e
+		simple object
+		pointer object
+pointer object is used in memory.
+pointer object easily access normal object memory.
+pointer object allocat dynamic memory using new keyword.
+new is used to allocated the dynamic memory.
+-> connectivity operator
+In c++ when user create object as pointer that time access class member
+function with the help of object and ->(connctivity operator)
+
+--delete keyword is used when defined object as pointer to deallocate
+the allocated memory.
+
+#include<iostream>
+using namespace std;
+
+class Test
+{
+	private:
+		int a;
+		float b;
+	public:
+		void get()
+		{
+			cout<<"Enter a and b";
+			cin>>a>>b;
+		}
+		
+		void show()
+		{
+			cout<<"\nA="<<a<<"\nB="<<b;
+		}
+		
+		//destructor 
+		~Test()
+		{
+			cout<<"\nObject Destroyed";
+		}
+};
+
+main()
+{
+	Test t1,t2;
+	Test *ptr;  //pointer object
+	t1.get();
+	t1.show();
+	ptr=new Test(); //allocated the dynamic memory
+	ptr->get();
+	ptr->show();
+	delete ptr; //de allocate the memory
+}
+//pointer object
+
+#include<iostream>
+using namespace std;
+
+class ShopItem
+{
+	private:
+    int id;
+    char name[30];
+    float price;
+    public:
+    	//function as an argument
+        void setData(int a, float b,char s[])
+		{
+            id = a;
+            price = b;
+            strcpy(name,s);
+        }
+        
+		void getData()
+		{
+            cout<<"Code of this item is "<< id<<endl;
+            cout<<"Price of this item is "<<price<<endl;
+ 			cout<<"Name of this item is "<<name<<endl;
+        }
+};
+
+ main(){
+    int size = 3;
+    ShopItem *ptr = new ShopItem [size];
+    //*ptr is pointer object which occupied the space for 3 object
+    ShopItem *ptrTemp = ptr;
+    //*ptrTemp is pointer object which point out ptr object
+    int p, i;
+    char n[30];
+    float q;
+    for (i = 0; i < size; i++)
+    {
+        cout<<"Enter Id and price and name of item "<< i+1<<endl;
+        cin>>p>>q>>n; //100 90.40 Pen
+        // (*ptr).setData(p, q);
+        ptr->setData(p, q,n); //100 90.40 pen
+        ptr++; 
+    }
+
+    for (i = 0; i < size; i++)
+    {
+        cout<<"Item number: "<<i+1<<endl;
+        ptrTemp->getData();
+        ptrTemp++;
+    }
+    
+    
+    
+}
+
+
+
+		
+ 
+	
+
+
+
+
+
+

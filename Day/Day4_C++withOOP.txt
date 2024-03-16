@@ -1,0 +1,299 @@
+
+Inheritance
+	Inherit the member of one
+class to another class.
+	Inheritance is a combination
+of Base class and Derived class.
+
+Base class
+	--It is also known as parent 
+or super class.
+	--In base class user defined
+protected member. In protected 
+defined variable which use in 
+derived class.
+	--user create the object of
+base class but base class object
+can't access derived class.
+	**Base class can't access Derived class.
+Derived class
+	-- It is also known as child class or
+sub class;
+	--User can't defined protected inside
+the derived class.	
+	-- Derived class easily acces Base class
+*** When user create object of derived class
+that time first occupied the space for
+base class then derived class.
+Syntax
+calss Base
+{
+
+};
+class Derived : derivedtype Baseclass name
+{
+
+};
+
+
+Types of Inheritance
+1. Single Inheritance
+	It is a combination of one base and
+one derived class.
+2. Multiple Inheritance
+	It is a combination of more than one base
+class having single derived class.
+	Base are work in different areas
+syntax
+class A
+{
+};
+class B
+{
+};
+class Derived:public A,public B
+{
+};
+
+
+
+/* 
+/* 
+Single Inherince
+
+*/
+#include<iostream>
+using namespace std;
+class base
+{
+	public:
+	void base_show()
+	{
+		cout<<"\nBase Class";
+	}
+};
+
+class child : public base
+{
+	public:
+		void child_show()
+		{
+			cout<<"\nDerived Class";
+		}
+};
+
+main()
+{
+//	base bobj; //valid
+	//bobj.base_show();
+	//bobj.child_show(); //not valid
+	child obj;
+	obj.child_show();
+	obj.base_show();
+}
+
+-----------------------
+/* 
+Single Inherince
+
+*/
+#include<iostream>
+using namespace std;
+class base
+{
+	public:
+	void show_Base()
+	{
+		cout<<"\nBase Class";
+	}
+};
+
+class child : public base
+{
+	public:
+		void show()
+		{
+			show_Base(); //call base class function
+			cout<<"\nDerived Class";
+		}
+};
+
+main()
+{
+child obj;
+obj.show();
+	
+}
+---------------------
+Function Overridding(Run time Polymorphisam)
+	When user give the same function
+name in base class and derived class
+that time call base class function inside
+the derived class as
+baseclassname::function_name();
+
+/*
+Write a program of single inheritance create 
+FE class
+	rollno
+	name
+	total ( 3 sub)
+SE class
+	total (3 sub)
+	per=FEtotal+total/6
+	
+
+*/
+#include<iostream>
+using namespace std;
+class FE
+{
+	private:
+		int rollno;
+		char name[20];
+		protected:
+			int total;
+	public:
+		void read()
+		{
+			cout<<"\nEnter roll no name and total marks";
+			cin>>rollno>>name>>total;
+		}
+		
+};
+class SE:public FE
+{
+	private:
+		int tot,f;
+		float per;
+		public:
+		void get()
+		{
+			cout<<"\nEnter marks";
+			cin>>tot;
+			f=total+tot;
+			per=f/6; 
+			
+		}
+		
+		void display()
+		{
+			cout<<"\nFinal Total="<<f<<"Percentage="<<per;
+		}
+};
+
+main()
+{
+	SE myobj;
+	myobj.read();
+	myobj.get();
+	myobj.display();
+}
+
+/////////////////
+/*
+Multiplie Inheritance
+
+class first
+	define  a,b,c and perform c=a+b;
+	defined c as a protected variable
+class second
+	 define p,ans;
+	 defined ans as protected
+	 ans=p+p;
+class derived
+	perform dans=c+ans;
+	
+-- first  scanfirst() print()
+--second  scan()  print()
+--der	set()
+	
+*/
+
+
+#include<iostream>
+using namespace std;
+class first
+{
+private:
+int a,b;
+protected:
+int c;
+public:
+	void scanfirst()
+	{
+		cout<<"\nEnter value for a and b";
+		cin>>a>>b;
+		c=a+b;
+		print();
+		}	
+	void print()
+	{
+		cout<<"\nA="<<a<<"\nB="<<b<<"\nC="<<c;
+	}
+};
+
+class second
+{
+private:
+int p;
+protected:
+int ans;
+public:
+	void scan()
+	{
+		cout<<"\nEnter value for p";
+		cin>>p;
+		ans=p+p;
+		print();
+		}	
+	void print()
+	{
+		cout<<"\nP="<<p<<"\n=Ans="<<ans;
+	}
+};
+
+class der :public first,public second
+{
+private:
+int d;
+public:
+void set()
+{
+	d=c+ans;
+	cout<<"\nAns="<<d;
+	
+	}	
+};
+main()
+{
+der myobj;	
+myobj.scanfirst();
+myobj.scan();
+myobj.set();
+
+
+}
+
+Assignments
+1. Create a class BankFD
+	in this perform
+	si=p*r*n/100
+	amount=p+si;
+     create class Loan
+	   in this perform
+	   interest=loanamount*rate*n/100
+	  amt=loanamount+interest
+	final=amount+amt;
+(single inheritance)
+2. Write a program create
+employee class
+	in this perform
+	eno
+	name and salary
+create bonus class
+         read bonus
+create salary class
+in this
+netsalary=salary+bonus
+(multiple )

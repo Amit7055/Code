@@ -1,0 +1,484 @@
+Important Topics
+-- Data types & variable
+--control statement if..else
+--loop  -while  -for
+-- Array    Integer 
+		String(string function)
+***---- class
+	  private
+	 public
+	protected
+***---Object
+--Constructor
+-- function
+getter function and seter function
+function as an argument
+--function overloading
+--static function
+Inheritance
+	Base class
+	Derived class
+-- Dynamic memory managment
+(new keyword)
+Write a program create emp class
+as empid name salary
+create object for 3 employees
+create pointer object
+scan and print employee information
+
+#include<iostream>
+
+using namespace std;
+class Emp
+{
+	private:
+		int id,salary;
+		char name[30];
+	public:
+		void set()
+		{
+			cout<<"\nEnter value for id name & salary";
+			cin>>id>>name>>salary;
+		}
+		
+		void show()
+		{
+			cout<<"\nId="<<id<<"\nName="<<name<<"\nSalary="<<salary;
+		}
+};
+
+main()
+{
+	int size=3,i;
+	Emp *obj=new Emp[size];
+	Emp *ptr=obj;
+	cout<<"\nEnter 3 Employee information";
+	for(i=0;i<size;i++)
+	{
+	obj->set();
+	obj++;
+		
+	}
+	
+cout<<"\nInformation";
+for(i=0;i<size;i++)
+{
+	ptr->show();
+	ptr++;
+}
+	
+}
+
+//with argument
+#include<iostream>
+
+using namespace std;
+class Emp
+{
+	private:
+		int id,salary;
+		char name[30];
+	public:
+		void set(int d,char z[],int s)
+		{
+			id=d;
+			strcpy(name,z);
+			salary=s;
+			
+		}
+		
+		void show()
+		{
+			cout<<"\nId="<<id<<"\nName="<<name<<"\nSalary="<<salary;
+		}
+		
+		int fun()
+		{
+			return(salary);
+		}
+};
+
+main()
+{
+	int size=3,i,total=0;
+	
+	Emp *obj=new Emp[size];
+	Emp *ptr=obj;
+	int myid,sal;
+	char ename[50];
+	cout<<"\nEnter 3 Employee information";
+	for(i=0;i<size;i++)
+	{
+		cout<<"\nEnter value for id name & salary";
+		cin>>myid>>ename>>sal;
+	obj->set(myid,ename,sal);
+	total=total+obj->fun();
+	obj++;
+		
+	}
+	
+cout<<"\nInformation";
+for(i=0;i<size;i++)
+{
+	ptr->show();
+	ptr++;
+}
+
+cout<<"\nTotal salary="<<total;
+	
+}
+///-----------------------
+
+
+this  pointer
+
+this keyword
+		It is keyword.
+		In case of arguement function user pass actual arguement to
+formal argument. That time give the different name to formal argument.
+	    using this keyword user use the same name to class variable and 
+formal argument variable name;
+	    this keywork represent to current object.
+Example
+class Test
+{
+private:
+int p;
+public:
+void set(int p)
+{
+this->p=p
+}
+};
+
+*this pointer object
+	When user create member function with classname
+return datatype  that time function return the object.
+	  User can't return itself object using function.
+	using *this concept user easily return itselt object.
+Syntax
+Test comp(classname &obj)
+{
+return(obj); //allowed
+return(T1); //not allowed
+return *this;  //allowed it return T1
+}
+Test T1,T2;
+T1.comp(T2);
+
+//without this pointer
+/*
+Write a program create person class
+and print largest age between two person using
+this pointer
+*/
+#include<iostream>
+#include<string.h>
+using namespace std;
+class person
+{
+	
+	private:
+		int age;
+		char name[30];
+	public:
+		//parameterized constructor
+		person(int age,char name[])
+		{
+			this->age=age;
+			strcpy(this->name,name);
+			
+		}
+		
+		void show()
+		{
+			cout<<"\nAge="<<age<<"\nName of Person="<<name;
+		}
+		
+		int comp()
+		{
+			return(age);
+		}
+};
+
+main()
+{
+	person p1(20,"Jack");
+	person p2(30,"Jill");
+	if(p1.comp()>p2.comp())
+	p1.show();
+	else
+		p2.show();
+}
+
+Write a program create Employee class
+with member
+id
+name
+salary
+
+print the information of employee who
+got maximum salary.
+
+use this *
+
+
+
+
+
+
+
+
+
+
+
+
+
+Write a program create class which name is city
+with member variable
+cityname
+tempratuer 
+
+create two objects
+and print the city name which tempratuer is less.
+
+	---constructor
+	---show temp
+	---comparasion function
+		strictly use this*
+
+Input and Output Console 
+
+cin :- it is member of istream class.
+
+cout  :- it is member of ostream class.
+
+ios is provide istream and ostream class.
+istream :- it is input stream. cin is a member(object) of 
+istream class. 
+istream provide various in built functions which user
+used with the help of cin and dot(.) operator
+1) 
+get() :- it is used to read single character from console.
+it required only single parameter which is character.
+syntax
+cin.get(char_variable);
+Example
+char ch;
+cin.get(ch);
+A
+2)
+getline():- it is used to read the collection of character from
+console. it is read space also.
+it required two paramters i.e. variablename and capacity.
+Syntax
+cin.getline(variable,size);
+Example
+cin.geline(name,20);
+
+ostream :- it is stand for output stream.
+cout is a member(object) of ostream class
+1. 
+put()
+	it is used to print single character on console.
+syntax
+cout.put(char_variable);
+Example
+char ch='A';
+cout.put(ch);
+2. 
+write()
+	:- it is used to write the character inside the file.
+syntax
+cout.write(char_variable);
+/*Write a program scan string
+from console scan and print one by one character
+and count the number of character
+*/
+
+#include<iostream>
+using namespace std;
+main()
+{
+	char ch;
+	int count=0;
+	cout<<"Enter String";  
+	cin.get(ch);  //pgdac ch=p
+	while(ch!='\n')
+	{
+	cout.put(ch);
+	count++;
+	cin.get(ch);
+	}
+	
+	cout<<"\nTotal Characters "<<count;
+	
+}
+
+/*
+Write a program scan string from console
+using getline()
+*/
+
+#include<iostream>
+using namespace std;
+main()
+{
+	char str[50];
+	cout<<"\nEnter City Name";
+	cin>>str;
+	cout<<"\nCity Name="<<str;
+	
+	cout<<"\nEnter City Name";
+	cin.getline(str,30);
+	cout<<"\nCity Name="<<str;
+	
+	cout<<"\nEnter City Name";
+	cin.getline(str,30);
+	cout<<"\nCity Name="<<str;
+	
+}
+
+
+Working with files
+file is a collection of information.
+C++ give the fstream  class using this class user Write(create) new file
+and Read  an Existing file.
+
+fstream is a combination of ifstream and ofstream
+fstream, ifstream, ofstream is a class.
+fstream  :-using this user create a file and read the content from exsting file.
+ofstream :- it is used to create new file. (write)
+Syntax
+ofstream out("filename");
+Example
+ofstream out("CDAC.txt"); //CDAC.txt file is created
+//or
+ofstream out;
+out.open("CDAC.txt");
+ifstream :- it is used to open an Existing file.(already created),open file
+on read mode
+Syntax
+ifstream in("filename");
+or
+ifstream in;
+in.open("filename");
+in.close();
+Syntax
+ifstream in;
+in.open("cdac.txt");
+in.close();
+
+#include<iostream>
+#include<fstream>
+using namespace std;
+
+main()
+{
+	char name[20];
+	float per;
+	int i;
+	ofstream out;
+	out.open("cdac.txt");
+	/*out<<"\nHello Students ";
+	out<<"\nDo Study";
+	*/
+	cout<<"Enter 5 Student information";
+	for(i=1;i<=5;i++)
+	{
+	cout<<"\Enter Student Name and percentage";
+	cin>>name>>per;
+	out<<name<<"\n"<<per<<endl;	
+	}
+	out.close();
+	//open file on read mode
+	ifstream in;
+	cout<<"\nStudent Details";
+	in.open("cdac.txt");
+	
+	for(i=1;i<=5;i++)
+	{
+		in>>name>>per;
+	cout<<"\nName ="<<name<<"\nPercentage="<<per;	
+	}
+	
+	in.close();
+	
+	out.close();
+}
+
+//getline
+
+/*Write  a program scan 5 friend name and stored
+inside the file*/
+
+#include<iostream>
+#include<fstream>
+using namespace std;
+main()
+{
+	char name[20];
+	int i;
+	ofstream out;
+	out.open("friend.txt");
+	
+	cout<<"Enter 5 Name";
+	for(i=1;i<=5;i++)
+	{
+	cout<<"\nEnter Name ";
+	gets(name);
+	out<<name<<"\n";
+	}
+	out.close();
+	//open file on read mode
+	ifstream in;
+	cout<<"\nFriend Details";
+	in.open("friend.txt");
+	in.seekg(0); //it is use to set the cursor at 1st position
+	for(i=1;i<=5;i++)
+	{
+		in.getline(name,40);
+		cout<<"\nName ="<<name;
+	}
+	
+	in.close();
+	
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

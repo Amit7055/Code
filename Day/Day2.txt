@@ -1,0 +1,712 @@
+
+Loop	
+	Types of Loop
+	1) while loop
+	2) do...while
+	3) for loop
+		i. simple for loop
+	       ii. nested for loop
+1. while Loop
+
+Syntax
+	intialization; 
+	while(condition)
+	{	
+	process statement;
+	increment/decrement;
+	}
+
+2. do..while loop
+
+Syntax
+intialization;
+	do
+	{
+	process statement;
+	increment/decrement;
+	}
+	while(condition);
+
+3. for loop
+
+	i) simple for loop
+		Syntax
+		for(intialization;condition;increment/decrement)
+		{
+		process statement;
+		}	
+		Excution of for loop
+			1st time execution of for loop (only once)
+				i) intialization
+			       ii) condition
+			      iii) Process statement
+			2nd time to till the condition is satisfied
+		              i) increment/decrement
+			       ii) condition
+			      iii) Process statement
+	ii) nested for loop
+		Syntax
+		// outer for loop
+		for(intialization;condition;increment/decrement)
+		{
+		//inner for loop
+		for(intialization;condition;increment/decrement)
+		{
+		process statement;
+		} //end of inner for loop	
+		}// end of outer for loop
+
+Array (collection)
+	1. It is group of elements with similar datatype.
+	2. it is also known as an index of elements.
+	3. define array as any type but index always integer and
+started from 0.
+	4. Array use lower bound(lb) and upper bound(ub) index
+	5. array values can't access without index. array element 
+assoicated  with index
+	6. array working is possible with the help of loop.(for loop)
+Types of Array
+1. One D Array
+	Syntax
+		datatype arrayname[size];
+		Example
+		//static array
+		int a[3]={23,56,45},i;
+			- int datatype a name of array and 3 size of array
+				i is an index of a array
+		//Dynamic array
+		Example
+		int a[10],i;
+	
+2. String
+3. Two D-Array
+
+
+
+
+
+
+
+
+
+/*
+Write a program which print hello 
+10 times
+
+
+*/
+
+#include<stdio.h>
+main()
+{
+	int a=1;  //a=1
+	while(a<=10)  //2<=10  
+	{
+		printf("\n%d = Hello",a);
+		a++; //1=1+1 a=2 
+	}
+}
+
+/*
+Write a program which print
+series 1..2..3......n
+series n...........1
+*/
+
+#include<stdio.h>
+main()
+{
+	int a=1,n;
+	printf("\nEnter value for n")  ;
+	scanf("%d",&n); //n=7
+	
+	printf("\nSeries 1.........%d",n);
+	while(a<=n)  
+	{
+		printf("\n A= %d",a);
+		a++; 
+	}
+	
+	
+	a=n;
+	printf("\nSeries %d......1",n);
+	while(a>=1)  
+	{
+		printf("\n A= %d",a);
+		a--; 
+	}
+		
+	
+}
+
+/*
+Write a program scan number and print 
+factorial of that number
+
+Enter Number 4  (4*3*2*1)
+4  factorial =24
+
+*/
+
+#include<stdio.h>
+main()
+{
+	int n,fact=1,a; //fact=1
+	printf("Enter value for n");
+	scanf("%d",&n); //n=4
+	a=n; //a=4
+	
+	while(n>=1) //4>=1  3>=1 2>=1 1>=1 0>=1false
+		{
+		fact=fact*n; //1=1*4; fact=4 =4*3 fact=12 =12*2 fact=24= 24*1 fact=24
+		n--; //n=3 n=2 n=1 n=0
+	}
+	printf("%d Factorial =%d",a,fact);
+	 
+		/*
+Write a program scan number and print the 
+table of number
+
+x=5
+
+5*1 =5
+5*2 =10
+15
+
+
+
+50
+
+*/
+
+#include<stdio.h>
+main()
+{
+
+int x,a=1;
+printf("Enter value for x");
+scanf("%d",&x ); //x=5
+
+while(a<=10) //1<=10
+{
+	printf("\n%d*%d=%d",x,a,x*a); // 5*1=5
+	a++;
+}
+}
+	
+}
+
+/*
+Write a program scan value for x and y
+and print x^Y
+
+x=2
+y=4
+2*2*2*2
+*/
+
+#include<stdio.h>
+main()
+{
+
+int x,y,ans=1,a=1;
+
+printf("Enter value for x and y");
+scanf("%d%d",&x,&y); //x=2 y=4
+	 while(a<=y) //1<=4  2<=4 3<=4 4<=4 5<=4false
+	 {
+	 	ans=ans*x; //ans 1=1*2 ans 2=2*2 ans 4=4*2 ans 8=8*2 ans=16
+	 	a++; //a=2 a=3 a=4 a=5
+	 }
+	 
+	 printf("%d^%d=%d",x,y,ans);
+		
+	
+}
+
+/*
+ Write a program which print square of 
+ 1 to 5 number
+
+1*1=1
+2*2=4
+
+*/
+
+#include<stdio.h>
+main()
+{
+
+int a=1;
+
+	while(a<=5) 
+	{
+	printf("\n%d *%d = %d",a,a,a*a);
+	a++;
+	}	
+}
+
+/*
+Write a program scan 5 numbers
+and print addition of 5 numbers
+
+*/
+#include<stdio.h>
+main()
+{
+int a=1,sum=0,n;
+printf("Enter 5 Numbers");
+	while(a<=5) //1<=5
+	{
+	printf("\nEnter Number=");
+	scanf("%d",&n); //12  10
+	sum=sum+n; // 0=0+12 sum=12
+	a++; //a=2 a=3 a=4 a=5 a=6
+	}	
+	printf("\nSum=%d",sum);
+	}
+
+
+/*
+Write a program scan 5 numbers
+and print maximum number.
+
+*/
+#include<stdio.h>
+main()
+{
+	int a=1,n,max=0;
+	printf("\nEnter 5 Numbers");
+	while(a<=5) //2<5  3<5 4<5 5<5 6<5false
+	{
+	printf("\nEnter Number=");
+	scanf("%d",&n); //n=5 n=3 n=11 n=8 n=3
+	if(n>max) //3>11
+	{
+		max=n; //max=11
+	}
+	
+	
+	a++; //a=2 a=3  a=4 a=5 a=6
+	}
+	printf("\nMaximum Number =%d",max);
+}
+
+/*
+Write a program scan number and print
+the sum of digits
+Enter number 
+456
+456 Sum of digits=15
+
+*/
+#include<stdio.h>
+main()
+{
+	int n,sum=0,a;
+	printf("Enter number");
+	scanf("%d",&n);  //n=456
+	a=n;
+	while(n>0) //456>0 45>0 4>0 0>0f
+	{
+		sum=sum+n%10;//sum 0=0+6 sum 6=6+5 sum 11=11+4 sum=15 
+		n=n/10;  //n=45 n=4 n=0
+		
+	}
+	printf("\n%d Sum of Digit=%d",a,sum);
+	
+	
+}
+/*
+
+
+*/
+#include<stdio.h>
+main()
+{
+	int a=1;
+	
+	while(a<=100)
+	{
+		if(a<=7)
+		{
+			printf("\n%d",a);	
+		}
+		else
+		break;
+	
+	a++; //a=8
+		
+	}
+
+printf("\nafter loop%d",a)	;
+}
+/*
+Write a program scan number and print
+number is prime or not
+
+n=7
+
+prime number
+
+n=9
+not prime number
+*/
+#include<stdio.h>
+main()
+{
+	int n,i=2,flag=1;
+	printf("\nEnter number");
+	scanf("%d",&n);  //n=9
+	while(i<n) //2<9 3<9
+	{
+		if(n%i==0) //true
+		{
+			flag=0;
+			break;
+		}
+		i++; //i=3 
+	}
+	
+	if(flag==1)
+	printf("%d is prime number",n);
+	else
+	printf("%d is not prime number",n);
+}
+
+#include<stdio.h>
+main()
+{
+	int a=1,n;
+	printf("Enter value for n");
+	scanf("%d",&n);  //n=-5
+	do
+	{
+		printf("\n%d",a); 
+		a++;
+	}
+	while(a<=n);
+	
+}
+
+/*
+Write a program scan 10 numbers which 
+is a combination
+of positive and negative numbers
+and calculate positive sum and count 
+total negative numbers
+
+*/
+#include<stdio.h>
+main()
+{
+	int a=1,n,p=0,count=0;
+	printf("Enter 10 Numbers");
+  do
+	{
+		printf("Enter Number");
+		scanf("%d",&n); //n= 42
+		if(n>0)
+		{
+			p=p+n; //0=0+12 p=12
+		}
+		else
+		{
+			count++; //count=1
+		}
+		
+		
+		a++;
+	}
+		while(a<=10);
+printf("\nSum of positive Numbers=%d",p)	;
+printf("\ntotal Negative Numbers=%d",count)	;
+}
+
+/*
+Write a program which print the series
+1..2............n
+n...............1
+
+*/
+#include<stdio.h>
+main()
+{
+	int a,n;
+	printf("Enter n value");
+	scanf("%d",&n); // n=4
+	printf("\nSeries 1..2........%d",n);
+	
+	for(a=1;a<=n;a++)
+	{
+		printf("\n%d",a);
+	}
+	
+	
+		printf("\nSeries %d........1",n);
+	
+	for(a=n;a>=1;a--)
+	{
+		printf("\n%d",a);
+	}
+	
+	
+}
+/*
+Write a program scan number and print factorial
+of number 
+
+number =4
+1*2*3*4
+
+4*3*2*1
+
+*/
+#include<stdio.h>
+main()
+{
+	int n,fact=1,i;
+	printf("Enter n value");
+	scanf("%d",&n); // n=4
+	//1*2*3*4
+	for(i=1;i<=n;i++)
+	{
+	fact=fact*i;	
+		
+	}
+	printf("\nFactorial =%d",fact);
+	fact=1;
+	//4*3*2*1
+	for(i=n;i>=1;i--)
+	{
+	fact=fact*i;	
+		
+	}
+	printf("\nFactorial =%d",fact);
+	
+}
+
+/*
+Write a program scan 10 numbers and
+print the cube of only odd numbers and 
+count total odd numbers
+*/
+#include<stdio.h>
+main()
+{
+	int i,n,count=0;
+	printf("Enter 10 Numbers");
+	for(i=1;i<=10;i++)
+	{
+		printf("\nEnter %d Number=",i);
+		scanf("%d",&n);
+		if(n%2!=0)
+		{
+			printf("\n %d cube =%d",n,n*n*n);
+			count++;
+		}
+				
+	}
+	
+printf("\nTotal Odd Numbers= %d",count);
+}
+//nested for loop
+
+/*
+Write a program which print pattern 
+Enter number 4
+*
+* *
+* * *
+* * * *
+* * *
+* *
+*
+
+
+*/
+#include<stdio.h>
+main()
+{
+	int i,j,n;
+		printf("Enter number");
+		scanf("%d",&n);  //n=4
+		for(i=1;i<=n;i++)   //  i=3 3<=4
+		{
+			for(j=1;j<=i;j++) //j=3 3<=2
+			{
+				printf(" * ");
+			}//end of inner for loop
+			printf("\n");
+		}
+		*/
+	
+	for(i=n-1;i>=1;i--)   
+		{
+			for(j=1;j<=i;j++) 
+			{
+				printf(" * ");
+			}//end of inner for loop
+			printf("\n");
+		}
+}
+
+//Array
+/*
+write a program scan 5 numbers inside the array
+and print index wise
+*/
+
+#include<stdio.h>
+main()
+{
+	int a[5],i;
+	printf("Enter 5 Numbers ");
+	for(i=0;i<5;i++)
+	{
+	printf("Enter %d position value=",i);
+	scanf("%d",&a[i]);
+	}
+	
+	
+	for(i=0;i<5;i++)
+	{
+		printf("\na[%d] = %d",i,a[i]);
+	}
+	
+}
+-----------------
+/*
+write a program scan 5 numbers inside the array
+and calculate the sum of array elements
+*/
+
+#include<stdio.h>
+main()
+{
+	int a[5],i,sum=0;
+	printf("Enter 5 Numbers ");
+	for(i=0;i<5;i++)
+	{
+	printf("Enter %d position value=",i);
+	scanf("%d",&a[i]); // 10
+	sum=sum+a[i]; //0=0+14 sum=14
+	}
+	
+	
+	for(i=0;i<5;i++)
+	{
+		printf("\na[%d] = %d",i,a[i]);
+	}
+	
+	printf("\nSum of array elemnts = %d",sum);
+}
+
+/*
+write a program scan 5 numbers inside the array
+and print maximum number with index
+*/
+
+#include<stdio.h>
+main()
+{
+	int a[5],i,max=0,x;
+	printf("Enter 5 Numbers ");
+	for(i=0;i<5;i++)
+	{
+	printf("Enter %d position value=",i);
+	scanf("%d",&a[i]); // 10  14  7 8 3
+				if(a[i]>max) //3>14
+				{
+					max=a[i]; //max=14
+					x=i;   //x=1
+				}
+	}
+	
+	
+	for(i=0;i<5;i++)
+	{
+		printf("\na[%d] = %d",i,a[i]);
+	}
+	
+	printf("\n%d maximum value present at %d location",max,x);
+}
+
+Assignments
+1. Write a program which print odd series and even series up to n
+odd series 1..3...5.................n
+even series 2..4...............n
+
+2. Write a program which print square of 1 to 5 number
+
+1*1=1
+2*2=4
+
+3. Write a program which loop start 1 and stop 100
+print alternate numbers
+1  3  5  
+4. Write a program which print leap year 
+between year 2000 to 2030 and print
+total leap years
+5. Write a program scan 10 numbers and
+calculate odd number and even number sum sepreatly.
+
+6. Write a program scan 10 numbers which is a combination
+of positive and negative numbers
+and calculate positive sum and count total negative numbers
+
+7. Write a program scan number and print number of digits or places
+Enter number 12
+2 digit
+123
+3 places
+
+8. Write a program scan 3 numbers and calcualte the sum of digit
+9. Write a program which print pattern
+enter number 4
+1
+1 2
+1 2 3
+1 2 3 4
+1 2 3
+1 2
+1
+10 write a program whic print pattern
+enter number4
+1
+2 2
+3 3 3
+4 4 4 4
+//array
+
+1. Write a program scan 7 values and print index wise.
+
+2. Write a program scan 10 numbers for array
+ print array with index
+and
+calculated sum of even numbers and total even numbers.
+3. Write a program scan array for 10 numbers which is combination
+of positive and negative numbers
+count total positive and negative
+
+4. Write a program scan array for 10 numbers which is combination
+of positive and negative numbers
+replace all negative numbers by 0
+
+5. Write a program which store 1 to 5 squar inside the array.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

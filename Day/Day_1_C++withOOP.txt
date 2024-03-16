@@ -1,0 +1,627 @@
+C++    with    OOP's(object oriented programming)
+
+---- Datatypes and variable
+---operators
+---- control statements and loops
+--- Array
+
+C++ 
+1.	Input and Output operation( >> <<)
+iostream.h (istream ostream stream)
+	i) cin :-
+	cin is stand  console input
+	 it is used to read value for variable and array.
+	Syntax
+	cin>>variable;
+	Example
+	1. int a;  cin>>a;
+	2. int a,b,c; cin>>a>>b>>c;
+	3. int a;
+	   float b;
+	    cin>>a>>b;
+		12
+		78.89
+   4.   int a[5],i;
+	for(i=0;i<5;i++)
+	{
+	cin>>a[i];
+	}
+
+ii) cout :- 
+	console output
+	i )it is used  to print any type of message on console. 
+	  syntax
+	 cout<<"Message";
+	Example
+	1.  
+	  cout<<"PGDAC";
+		PGDAC
+	2. 
+	cout<<"PGDAC"<<"\nNASHIK"<<endl<<"March-24";
+	  PGDAC
+	  NASHIK
+	 March-24
+       ii) it is used to print value of variable and array
+	syntax
+	cout<<variable;
+	Example
+	int a=100;
+	cout<<a;    100
+	cout<<"\nA="<<a;  A=100
+	
+
+		
+1. function(udf) (user defined function)
+2. structuer
+
+1.  function(udf)
+		it is required parameter and with the help of parameter it return
+value.
+	       function created one time but it is use multiple time with different
+paramter.
+
+Types of udf
+1. without return (void)
+		it is not return any thing direct process inside the function
+syntax
+void function_name(formal_parameter)
+{
+variable define;
+process statement;
+output statement;
+}
+
+2. with return
+		it return a specific value from function using return keyword.
+		in this print is allowed.
+syntax
+return_datatype function_name(formal_parameter)
+{
+variable define;
+process statement;
+return(value);
+}
+//return_ datatype  int,long,float,char,classname;
+
+paramters
+	1) Actual parameter :- variable which is defined in main program
+	and used in udf.
+
+	2) fromal parameter:-  formal parameter represent actual parameter value
+inside the  udf.
+
+call by value
+     No variable value change in main program
+
+call by reference(pointer)
+	
+Structuer
+//pre declration of function
+#include<iostream>
+using namespace std;
+//udf defined or declratrion 
+
+void fun(paramter)
+{
+process statement;
+}
+
+main()
+{
+
+fun(); //call udf
+
+}
+
+//------------------------------
+
+
+//post declration of function
+#include<iostream>
+using namespace std;
+
+void fun(paramter); //prototype of function
+main()
+{
+
+fun(); //call udf
+
+}
+
+//udf defined or declratrion 
+
+void fun(paramter)
+{
+process statement;
+}	
+
+
+#include<iostream>
+using namespace std;
+// udf
+
+void myfun()
+{
+	cout<<"\nExecution of myfun";
+}
+
+void fun()
+{
+	cout<<"\nExcution of fun";
+}
+
+void fun_data()
+{
+	myfun();
+	fun();
+}
+main()
+{
+
+fun();
+cout<<"\nMain Program";
+myfun();
+fun_data();
+}
+
+//-----------------
+/*
+Write a program scan two number
+and calculate sum of numbers using function
+---without return and with return
+
+*/
+#include<iostream>
+using namespace std;
+void addition(int x,int y) //x and y is formal parameter which represent 10 and 45
+{
+int c;
+c=x+y	;
+cout<<"\nAdditon"<<x<<"+"<<y<<"="<<c;
+}
+
+// with return
+
+int sum(int p,int q)
+{
+	int c;
+	c=p+q; //a=30
+	return(c); //30
+}
+
+
+
+main()
+{
+int a,b,ans;
+cout<<"\nEnter value for a and b";
+cin>>a>>b;   //a=10  b=45
+addition(a,b); //call udf a and b is actual paramter
+//--------------- with return
+
+ans=sum(a,b); //call sum function and stored ans of function inside the ans variable
+
+cout<<"\nSum="<<ans;
+
+
+}
+
+--------------------
+/*
+Write a program scan number and calculate
+square of number using with return function
+
+--pass square value to cube function and
+calculate cube of value
+*/
+#include<iostream>
+using namespace std;
+int sqr(int x)
+{
+	int ans;
+	ans=x*x;
+	return(ans);
+	
+}
+
+//-------------
+void cube(int x)
+{
+	cout<<"\nCube="<<x*x*x;
+}
+
+main()
+{
+int a,sq;
+cout<<"Enter value for a";
+cin>>a; //3
+sq=sqr(a);
+cout<<"Square="<<sq;
+//-------------
+cube(sq);
+
+
+}
+
+/*
+Write a program scan number and print number
+is prime or not(with return)
+*/
+#include<iostream>
+using namespace std;
+int prime(int n)
+{
+	int i=2,flag=1;
+	while(i<n)
+	{
+		if(n%i==0)
+		{
+			flag=0;
+			break;
+		}
+		i++;
+	}
+	if(flag==1)
+	return(1);
+	else
+	return(0);
+	
+}
+main()
+{
+int n;
+cout<<"Enter value for n";
+cin>>n; //4
+	if(prime(n)) //if(0)
+	{
+		cout<<"\nNumber is prime="<<n;
+	}
+	else
+	{
+		cout<<"\nNumber is not prime="<<n;
+	}
+
+}
+/*
+Write a program scan array and calculate
+the sum of array elements using function
+*/
+#include<iostream>
+using namespace std;
+
+void sum(int a[])
+{
+	int i,sum=0;
+	for(i=0;i<5;i++)
+	{
+		sum+=a[i]; //sum=sum+a[i]
+	}
+	cout<<"\nSum of array elements="<<sum;
+}
+main()
+{
+int a[5],i;
+cout<<"Enter value for array";
+for(i=0;i<5;i++)
+{
+	cin>>a[i];
+}
+
+
+/*
+Write a program scan string and calculate 
+length of string using function
+(don't use strlen() )
+*/
+#include<iostream>
+using namespace std;
+int length(char str[]) //str=PGDAC\0
+{
+	int i=0;
+	
+	while(str[i]!='\0')
+	{
+		i++; //i=0 1  2  3  4  5
+	}
+	return(i);
+}
+
+main()
+{
+	char str[50];
+	int len;
+	cout<<"\nEnter String";
+	gets(str);
+	
+	len=length(str);
+	cout<<"\nLength of string="<<len;
+	
+	
+}
+sum(a); //pass a array to sum function
+}
+
+////////////////////////
+
+structure
+-- it is an user defined data type which define outside the
+ main.
+-- inside the structuer define only dynamic variable.
+-- structuer is not occupied any type of space in memory.
+--structuer variable is access with the help of object. object
+is occupied space in memory.
+--only structuer variable access with object.
+--structuer variable and object connector is dot(.)
+--structuer is not execute itself.
+-- structuer is terminate with ;
+-- structuer is defined useing struct keyword
+
+Object :- object is work like a container.
+	   -object is occupied space in a memory.
+	  -object size is depend on structuer variable
+	  - user can defined multiple object realted to
+	   one structuer . all object work in different area.
+
+
+Types of structuer
+1. simple structuer
+2. array with structuer
+3. structuer with pointer
+
+1. simple structuer:- in this defined multiple object.
+for each object different process statement.
+syntax
+struct structname
+{
+variable define;
+};
+
+main()
+{
+struct structname object1,object1; 
+}
+Example
+
+     	struct test
+	{
+	int a,b;
+	float c;
+	};  //terminate struct
+	
+	main()
+	{
+	int x;
+	struct test jack,jill; //jack and jill is an object of test struct
+
+	}
+	
+/*
+Write a program scan the information
+about two students as
+rollno
+name and 
+total marks
+
+*/
+#include<iostream>
+using namespace std;
+// struct 
+struct student
+{
+	int rollno,total;
+	char name[40];
+};
+main()
+{
+struct student jack,jill;
+cout<<"Enter jack rollno name and total marks";
+cin>>jack.rollno>>jack.name>>jack.total;
+
+cout<<"Enter jill rollno name and total marks";
+cin>>jill.rollno>>jill.name>>jill.total;
+
+cout<<"\nJack Detials";
+cout<<"\nRoll Number="<<jack.rollno<<"\nName ="<<jack.name<<"\nTotal Marks="<<jack.total;
+
+cout<<"\nJill Detials";
+cout<<"\nRoll Number="<<jill.rollno<<"\nName ="<<jill.name<<"\nTotal Marks="<<jill.total;
+	
+}
+
+-------------------------------
+/*
+. Write a program create employee struct
+with member variable as
+empno
+empname
+salary
+
+for 2 employees and print information about employee 
+who got heighest salary
+
+*/
+#include<iostream>
+using namespace std;
+// struct 
+struct employee
+{
+	int eno,sal;
+	char name[40];
+};
+main()
+{
+struct employee seeta,geeta;
+cout<<"Enter seeta empno name and salary";
+cin>>seeta.eno>>seeta.name>>seeta.sal;
+cout<<"Enter geeta empno name and salary";
+cin>>geeta.eno>>geeta.name>>geeta.sal;
+
+if(seeta.sal>geeta.sal)
+{
+cout<<"\nSeeta Detials";
+cout<<"\nEmployee Number="<<seeta.eno<<"\nName ="<<seeta.name<<"\nSalary="<<seeta.sal;
+	
+}
+else
+{
+cout<<"\nGeeta Detials";
+cout<<"\nEmployee Number="<<geeta.eno<<"\nName ="<<geeta.name<<"\nSalary="<<geeta.sal;
+
+}
+	
+}
+
+-----------------------------
+2. Array with structuer
+	it is used to define multiple object which occupied
+continous memory and access with help of index
+Syntax
+struct structname
+{
+variable define;
+};
+
+main()
+{
+struct structname obj[size];
+}
+
+/*
+. Write a program create employee struct
+with member variable as
+empno
+empname
+salary
+for 5 employees
+
+
+
+*/
+#include<iostream>
+using namespace std;
+// struct 
+struct employee
+{
+	int eno,sal;
+	char name[40];
+};
+main()
+{
+	int i;
+struct employee empobj[5];
+cout<<"Enter 5 Employee information";
+for(i=0;i<5;i++)
+{
+cout<<"Enter  empno name and salary";
+cin>>empobj[i].eno>>empobj[i].name>>empobj[i].sal;
+	
+}
+cout<<"\nEmployee List";
+for(i=0;i<5;i++)
+{
+	
+cout<<"\nEmployee Number="<<empobj[i].eno<<"\nName ="<<empobj[i].name<<"\nSalary="<<empobj[i].sal;
+}
+	
+}	
+//----------------------------/*
+. Write a program create employee struct
+with member variable as
+empno
+empname
+salary
+for 5 employees
+
+
+
+*/
+#include<iostream>
+using namespace std;
+// struct 
+struct employee
+{
+	int eno,sal;
+	char name[40];
+};
+main()
+{
+	int i,total=0;
+struct employee empobj[5];
+cout<<"Enter 5 Employee information";
+for(i=0;i<2;i++)
+{
+cout<<"Enter  empno name and salary";
+cin>>empobj[i].eno>>empobj[i].name>>empobj[i].sal;
+total=total+empobj[i].sal;
+}
+cout<<"\nEmployee List";
+cout<<"\nEmp Number      Name           Salary";
+cout<<"\n-----------------------------";
+for(i=0;i<2;i++)
+{
+	
+cout<<"\n"<<empobj[i].eno<<"\t"<<empobj[i].name<<"\t"<<empobj[i].sal;
+}
+cout<<"\n----------------------------";
+cout<<"\nTotal Salary          "<<total;
+	
+}
+
+/////////////////////////////
+1. Write a program scan two numbers and swap(Exchange)
+2. Write a  menu driven program create menu as
+	1. addition  (with return)
+	2. subtraction (without return)
+	3. multiplication(without return)
+3. Write a program scan number and calculate factorial
+using without return function
+4. Write a program scan array and count total even number
+using function.
+5. Write a program scan string and copy into another string
+using function.
+6. Write a program create employee struct
+with member variable as
+empno
+empname
+salary
+
+for 2 employees and print information about employee 
+who got heighest salary
+------------------------------------
+1. Write a program which print all prime numbers
+between 1  to 100 using function.
+2. Write a program scan string and replace alternate character
+by $ sign. using function
+3. write a program create employee struct for 3 employees
+ and print maximum salary;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
